@@ -1,10 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+
 const weatherSlice = createSlice({
     name: 'weather',
     initialState: {},
     reducers: {
-        putWeatherInfo: (state, action) => action.payload
+        putWeatherInfo: (_state, action) => action.payload
     }
 })
 

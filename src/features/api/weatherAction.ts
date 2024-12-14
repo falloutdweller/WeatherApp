@@ -1,9 +1,10 @@
-import {api_key, base_url} from "../../utils/constants.js";
-import {putMessage} from "../message/messageSlice.js";
-import {putWeatherInfo} from "../weather/weatherSlice.js";
+import {api_key, base_url} from "../../utils/constants.ts";
+import {putMessage} from "../message/messageSlice.ts";
+import {putWeatherInfo} from "../weather/weatherSlice.ts";
+import {AppDispatch} from "../../app/store.ts";
 
-export const fetchWeather = (city) => {
-    return dispatch => {
+export const fetchWeather = (city: string) => {
+    return (dispatch : AppDispatch) => {
         fetch(`${base_url}?q=${city}&appid=${api_key}&units=metric`)
             .then(result => result.json())
             .then(data => {
@@ -20,5 +21,6 @@ export const fetchWeather = (city) => {
                 console.log(e);
                 dispatch(putMessage('Enter correct city name'));
             })
+
     }
 }

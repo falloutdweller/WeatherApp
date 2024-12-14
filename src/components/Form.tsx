@@ -1,12 +1,12 @@
-import {useState} from "react";
-import {useDispatch} from "react-redux";
-import {fetchWeather} from "../features/api/weatherAction.js";
+import {FormEvent, useState} from "react";
+import {fetchWeather} from "../features/api/weatherAction.ts";
+import {useAppDispatch} from "../app/hooks.ts";
 
 const Form = () => {
     const [city, setCity] = useState('');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const getCity = e => {
+    const getCity = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
        dispatch(fetchWeather(city));
         setCity('');

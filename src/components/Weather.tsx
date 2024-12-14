@@ -1,9 +1,16 @@
-import {useSelector} from "react-redux";
+import {useAppSelector} from "../app/hooks.ts";
+
+interface WeatherObj {
+    country: string,
+    city: string,
+    temp: number,
+    pressure: number,
+    sunset: number,
+}
 
 const Weather = () => {
-    const message = useSelector(state => state.message);
-    const weather = useSelector(state => state.weather);
-
+    const message = useAppSelector(state => state.message);
+    const weather = useAppSelector(state => state.weather as WeatherObj);
     return (
         <div className={'infoWeath'}>
             {!message &&
