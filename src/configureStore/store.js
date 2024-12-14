@@ -1,4 +1,10 @@
-import {legacy_createStore as createStore} from "redux";
-import {weatherReducer} from "../reducers/weatherReducer.js";
+import weather from "../features/weather/weatherSlice";
+import message from "../features/message/messageSlice";
 
-export const store = createStore(weatherReducer);
+import {configureStore} from "@reduxjs/toolkit";
+
+export const store = configureStore({
+    reducer: {
+        weather, message
+    }
+});
